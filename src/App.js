@@ -5,6 +5,7 @@
 
 // import ToDoApp from "./screens/to do app/ToDoApp";
 import Resume from "./screens/resume/Resume";
+// import YtPage from "./screens/ytPgae/YtPage";
 
 // import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 // const router = createBrowserRouter([
@@ -27,6 +28,7 @@ function App() {
       {/* <UseMemo /> */}
       {/* <ToDoApp /> */}
       <Resume />
+      {/* <YtPage /> */}
       {/* <RouterProvider router={router} /> */}
     </>
   );

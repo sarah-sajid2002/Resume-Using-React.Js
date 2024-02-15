@@ -1,70 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Resume.css";
 import ResumeLists from "../../components/ResumeLists";
+import resumeData from "../../components/ResumeData";
+
 const Resume = () => {
+  let [theme, setTheme] = useState("white");
+  function changeColor(theme) {
+    setTheme((prevTheme) => (prevTheme === "black" ? "white" : "black"));
+  }
+
+  let styling = {
+    backgroundColor: theme,
+    color: theme === "black" ? "white" : "black",
+  };
   return (
-    <div>
+    <div style={styling}>
       <>
         <div id="header" />
         <div className="left" />
         <div className="stuff">
           <br />
           <br />
-          <h1>Resume</h1>
+          <h1>
+            Resume
+            <button
+              onClick={() => changeColor(theme)}
+              className="theme"
+              style={
+                theme === "black"
+                  ? { backgroundColor: "white", color: "black" }
+                  : { backgroundColor: "black", color: "white" }
+              }
+            >
+              turn {theme === "black" ? "'white'" : "'black'"}
+            </button>
+          </h1>
+
           <h2>Emily</h2>
           <hr />
           <br />
-
-          <ResumeLists
-            title="Interests"
-            values={[
-              "Drawing",
-              "Photography",
-              "Design",
-              "Programming",
-              "Computer Science",
-            ]}
-          />
-
-          <ResumeLists
-            title="Skills"
-            values={[
-              "Web Design with HTML CSS",
-              "Education",
-              <a href="http://www.wiltonhighschool.org/pages/Wilton_High_School">
-                Wilton High School
-              </a>,
-              <a href="https://www.silvermineart.org/">
-                Silvering School of Arts
-              </a>,
-            ]}
-          />
-
-          <ResumeLists
-            title="Education"
-            values={[
-              <a href="http://www.wiltonhighschool.org/pages/Wilton_High_School">
-                Wilton High School
-              </a>,
-              <a href="https://www.silvermineart.org/">
-                Silvermine School of Arts
-              </a>,
-              "Codeacademy",
-            ]}
-          />
-
-          <ResumeLists
-            title="Experience"
-            values={[
-              "Student Technology Intern for Wilton School District",
-              "Babysitter",
-            ]}
-          />
-
-          <ResumeLists
-            title="Extracurriculars"
-            values={["Recycling Club", "Gardening Club", "Book Club"]}
-          />
+          {resumeData.map((data, i) =>
+            data.values.length > 0 ? (
+              <ResumeLists
+                key={i + 1}
+                title={data.title}
+                values={data.values}
+              />
+            ) : null
+          )}
         </div>
         <div className="right" />
         <div id="footer">

@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.videoComponents {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: 100vh;
+  flex-wrap: wrap;
+}
