@@ -25,3 +25,5 @@ yarn-error.log*
 # files
 /YtPage.js
 /YtPage.css
+./components/video
+./screens/ytPage
